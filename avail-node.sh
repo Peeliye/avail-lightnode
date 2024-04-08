@@ -15,8 +15,8 @@ EOF
 # 使用screen运行curl命令
 screen -dmS avail bash -c "curl -sL https://avail.sh | bash -s -- --identity identity.toml"
 
-screen -r avail
+#screen -r avail
 
-# sleep 90
-# # 查看轻节点状态
-# curl -I "localhost:7000/health"
+sleep 90
+# 查看轻节点状态
+curl -I "localhost:7000/health"
