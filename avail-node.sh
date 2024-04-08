@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ./*
+
 systemctl stop availd.service
 
 # 用户输入秘密种子短语
