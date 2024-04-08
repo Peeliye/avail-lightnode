@@ -13,7 +13,7 @@ avail_secret_seed_phrase = "$avail_secret_seed_phrase"
 EOF
 
 # 使用screen运行curl命令
-screen -dmS avail bash -c "curl -sL https://avail.sh | bash -s -- --identity identity.toml"
+screen -dmS node bash -c "curl -sL https://avail.sh | bash -s -- --identity identity.toml"
 
 #screen -r avail
 
