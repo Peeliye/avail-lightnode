@@ -10,13 +10,18 @@ else
     echo "Service is not active or does not exist, no action taken."
 fi
 
-# 用户输入秘密种子短语
-read -p "12/24位助词: " avail_secret_seed_phrase
+# 检查 identity.toml 文件是否存在
+if [ ! -f "identity.toml" ]; then
+    # 文件不存在，提示用户输入助记词
+    read -p "12/24位助词: " avail_secret_seed_phrase
 
-# 创建并写入配置文件 identity.toml
-cat > identity.toml << EOF
+    # 创建并写入配置文件 identity.toml
+    cat > identity.toml << EOF
 avail_secret_seed_phrase = "$avail_secret_seed_phrase"
 EOF
+else
+    echo "Config file identity.toml already exists, skipping input."
+fi
 
 # 使用screen运行curl命令
 screen -dmS node bash -c "curl -sL https://avail.sh | bash -s -- --identity identity.toml"
